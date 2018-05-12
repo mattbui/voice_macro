@@ -29,7 +29,8 @@ You will be able to manage your macros via web interface at `localhost:<your_por
 ![form_page](screenshots/form.png)
 
 ## Author
-Minh Bui
+Minh Bui.
+
 Contact me via buicongminh2717@gmail.com
 
 
