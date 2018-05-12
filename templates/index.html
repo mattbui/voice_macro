@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block js %}
+<script type="text/javascript" src="static/js/app.js"></script>
+{% endblock %}
+
+{% block create %}
+<li id="new_macro"><p class="navbar-btn"><a href="/new_macro_form" class="btn btn-default gradient-border"><span>Create new macro</span></a></p></li>
+{% endblock %}
+
+{% block content %}
+<h3 class="purple-text">Macro List</h3><br>
+<div class="table-responsive">
+    <table class="table" id="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Language</th>
+                <th>Keyboard events</th>
+                <th>Description</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for id, name, language, age_group, gender, description, events_string, ke_path, model_path in macros %}
+                <tr>
+                    <td><a href="/{{ id }}">{{ name }}</a></td>
+                    <td>{{ language }}</td>
+                    <td>{{ events_string }}</td>
+                    <td>{{ description }}</td>
+                    <td><a href="delete/{{ id }}" class="gradient-red-text">delete</a></td>
+                </tr>
+            {% else %}
+                <p>No macro available</p>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

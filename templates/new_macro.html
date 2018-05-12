@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block js %}
+<script type="text/javascript" src="static/js/app1.js"></script>
+{% endblock %}
+
+{% block create %}
+<li  id="cancel"><p class="navbar-btn"><a class="btn btn-default btn-recording"><span>Cancel</span></a></p></li>
+{% endblock %}
+
+{% block content %}
+<form id="macro-form" class="form-group my-form">
+    <b>Name:</b> <input class="form-control my-input" type="text" name="name" id="name" required><br>
+    <b>Language:</b>
+    <select class="form-control my-input" name="language" id="language" required> 
+    </select><br>
+    <b>Age group:</b>
+    <select class="form-control my-input" name="age" id="age" required>
+    </select><br>
+    <b>Sound record:</b><br><br>
+    <div class="row">
+        <div class="col-md-2 col-md-offset-1 col-sm-2 col-sm-offset-1 col-xs-4">
+            <a>
+            <span class="btn btn-default btn-no-record sound-record-btn" id="sound-1" sound-file="">Record</span>
+            </a>
+        </div>
+        <div class="col-md-2 col-md-offset-2 col-sm-2 col-sm-offset-2 col-xs-4">
+            <a>
+            <span class="btn btn-default btn-no-record sound-record-btn" id="sound-2" sound-file="">Record</span>
+            </a>
+        </div>
+        <div class="col-md-2 col-md-offset-2 col-sm-2 col-sm-offset-2 col-xs-4">
+            <a>
+            <span class="btn btn-default btn-no-record sound-record-btn" id="sound-3" sound-file="">Record</span>
+            </a>
+        </div>
+    </div><br>
+    <div class="row vertical-align">
+        <div class="col-md-3 col-sm-3 col-xs-3">
+            <b>Keyboard record:</b>
+        </div>
+        <div class="col-md-6 col-sm-6 col-xs-6">
+            <p class="small text-muted note">Click Record to record macro, and press esc when finish macro</p>
+        </div>
+        <div class="col-md-3 col-sm-3 col-xs-3 pull-right">
+            <a>
+                <span class="btn btn-default btn-no-record" id="key-record-btn" key-file="">Record</span>
+            </a>
+        </div>
+    </div><br>
+    <div class="form-control my-input">
+        <span id="key-event"></span>
+    </div><br>
+    <b>Gender:</b>
+    <select class="form-control my-input" name="gender" id="gender" required>
+            <option value="F">Female</option>
+            <option value="M">Male</option>
+    </select><br>
+    <b>Description:</b><br>
+    <textarea class="form-control my-input" rows="3" name="description" id="description"></textarea><br>
+    <input class="btn btn-default gradient-border" type="submit" value="Submit" id="create_macro">
+</form>
+{% endblock %}

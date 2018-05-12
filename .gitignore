@@ -1,0 +1,6 @@
+.vscode/*
+models/*
+keyboard_events/*
+*.pyc
+*.db
+*.pmdl

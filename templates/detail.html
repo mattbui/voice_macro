@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block js %}
+<script type="text/javascript" src="static/js/app2.js"></script>
+{% endblock %}
+
+{% block create %}
+<li><p class="navbar-btn"><a href="/delete/{{ macro.0 }}" class="btn btn-default btn-recording"><span>Delete</span></a></p></li>
+{% endblock %}
+
+{% block content %}
+<h3 class="purple-text">{{ macro.1 }}</h3><br>
+<div class="table-responsive">
+    <table class="table">
+        <tr>
+            <td><b>Language:</b></td> <td id="language">{{ macro.2 }}</td>
+        </tr>
+        <tr>
+            <td><b>Age group:</b></td> <td>{{ macro.3 }}</td>
+        </tr>
+        <tr>
+            <td><b>Gender:</b></td> <td id="gender">{{ macro.4 }}</td>
+        </tr>
+        <tr>
+            <td><b>Keyboard events:</b></td> <td>{{ macro.6 }}</td>
+        </tr>
+        <tr>
+            <td><b>Description:</b></td> <td><p>{{ macro.5 }}</p></td>
+        </tr>
+
+    </table>
+</div>
+{% endblock %}

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head> 
+        <title> Voice Macro </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="shortcut icon" href="static/images/logo.png">
+        <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link rel= "stylesheet" type= "text/css" href= "static/css/style.css">
+        <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        {% block js %}
+        {% endblock %}
+    </head>
+    <body>
+        <header>
+        <nav class="navbar navbar-default navbar-static-top">
+        <div class="container-fluid">
+            <div class='col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-12'>
+            <div class="navbar-header">
+            <a class="navbar-brand" href="/"><img src="static/images/logo.png" alt="logo">
+            </a>
+            </div>
+            <div id="navbar">
+            <ul class="nav navbar-nav navbar-right">
+                {% block create %}
+                {% endblock %}
+            </ul>
+            </div>
+            </div>
+            <!--/.nav-collapse -->
+        </div>
+        <!--/.container-fluid -->
+        </nav>
+        </header>
+    
+        <div class="container-fluid main">
+            <div class='col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-12 main-content' id="main-content">
+                {% block content %}
+                {% endblock %}
+            </div>
+        </div>
+        <footer>
+            <p>Copyright &copy; Voice Macro</p>
+        </footer>
+    </body>
+</html>

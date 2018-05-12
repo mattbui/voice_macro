@@ -1,0 +1,21 @@
+{
+  "language":{
+    "ar": "Arabic",
+    "zh": "Chinese",
+    "nl": "Dutch",
+    "en": "English",
+    "fr": "French",
+    "dt": "German",
+    "hi": "Hindi",
+    "it": "Italian",
+    "jp": "Japanese",
+    "ko": "Korean",
+    "fa": "Persian",
+    "pl": "Polish",
+    "pt": "Portuguese", 
+    "ru": "Russian", 
+    "es": "Spanish",
+    "ot": "Other"
+  },
+  "age_group": ["0_9", "10_19", "20_29", "30_39", "40_49", "50_59", "60+"]
+}
