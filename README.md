@@ -25,7 +25,9 @@ The server will be run at `localhost:<your_port>`. Ex: `sudo python server.py --
 
 ### Manage macros
 You will be able to manage your macros via web interface at `localhost:<your_port>`
-![home_page](screenshots/home.png) ![form_page](screenshots/form.png) ![home_page](screenshots/detail.png)
+| Manage pages|
+| :---: | :---: | :---: |
+| ![home_page](screenshots/home.png) | ![form_page](screenshots/form.png) | ![home_page](screenshots/detail.png)
 
 ## Author
 Minh Bui
