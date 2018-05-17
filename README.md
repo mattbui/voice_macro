@@ -19,9 +19,11 @@ pip install -r requirements.txt
 ### Running server
 **Note:** The keyboard package need **root** permission to run.
 ```bash
-sudo python server.py --port <your_port>
+sudo python server.py --port *your_port*
 ```
-The server will be run at `localhost:<your_port>`. Ex: `sudo python server.py --port 8000` then the server will be running at `localhost:8000`.
+For more optional arguments `python server.py --help`
+The server will be run at `localhost:*your_port*`. Ex: `sudo python server.py --port 8000` then the server will be running at `localhost:8000`.
+To run it automatically when the OS start add the script to /etc/init.d as described [here](https://askubuntu.com/questions/290099/how-to-run-a-script-during-boot-as-root)
 
 ### Manage macros
 You will be able to manage your macros via web interface at `localhost:<your_port>`

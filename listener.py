@@ -7,10 +7,11 @@ import threading
 
 class Listener(threading.Thread):
 
-    def __init__(self, sensitivity=0.5):
+    def __init__(self, sensitivity=0.5, speed_factor=0):
         threading.Thread.__init__(self)
         self.sensitivity = sensitivity
         self.interrupted = False
+        self.speed_factor = 0
 
     def _interrupt_callback(self):
         return self.interrupted
@@ -21,7 +22,7 @@ class Listener(threading.Thread):
 
     def _key_action(self, index):
         events = utils.restore_keyboard_events(self.keyboard_jsons[index])
-        keyboard.play(events)
+        keyboard.play(events, speed_factor=self.speed_factor)
     
     def run(self):
         database = Database()
@@ -38,7 +39,7 @@ class Listener(threading.Thread):
         callbacks = [lambda index=i: self._key_action(index) for i in range(len(self.models))]
 
         detector = snowboydecoder.HotwordDetector(self.models, sensitivity=sensitivities)
-        print('Listener listening .... ({} models)'.format(len(self.models)))
+        print('Listener listening .... ({} models), sensitivity {}, speed_factor {}'.format(len(self.models), self.sensitivity, self.speed_factor))
         detector.start(detected_callback=callbacks,
                interrupt_check=self._interrupt_callback,
                sleep_time=0.01)

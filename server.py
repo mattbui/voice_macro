@@ -12,7 +12,6 @@ app = Flask(__name__)
 sound_recorder = SoundRecorder()
 keyboard_recorder = KeyboardRecorder()
 database = Database()
-sensitivity = 0.35
 
 @app.route('/')
 def index():
@@ -29,7 +28,7 @@ def new_macro_form():
 
 @app.route('/delete/<id>')
 def delete(id=None):
-    global listenter, database
+    global listenter, database, args
     _, _, _, _, _, _, _, ke_path, model_path = database.get_macro(id)
     os.remove(ke_path)
     os.remove(model_path)
@@ -39,7 +38,7 @@ def delete(id=None):
     except Exception as e:
         pass
     if(len(database.get_all()) > 0):
-        listenter = Listener(sensitivity=sensitivity)
+        listenter = Listener(sensitivity=args.sensitivity, speed_factor=args.speed_factor)
         listenter.start()
     return redirect('/')
 
@@ -118,7 +117,7 @@ def add_macro():
             except Exception as e:
                 pass
             if(len(database.get_all()) > 0):
-                listenter = Listener(sensitivity=sensitivity)
+                listenter = Listener(sensitivity=args.sensitivity, speed_factor=args.speed_factor)
                 listenter.start()
             return jsonify({"message": "ok"})
         except sqlite3.Error as e:
@@ -128,12 +127,14 @@ def parse_argument(argv):
     parser = argparse.ArgumentParser()
 
     parser.add_argument("--port", type=int, help="The port for the server run locally", default=8000)
+    parser.add_argument("--sensitivity", type=float, help="Model sensitivity", default=0.35)
+    parser.add_argument("--speed_factor", type=float, help="Keyboard speed factor playback", default=0)
 
     return parser.parse_args(argv)
 
 args = parse_argument(sys.argv[1:])
 if(len(database.get_all()) > 0):
-    listenter = Listener(sensitivity=sensitivity)
+    listenter = Listener(sensitivity=args.sensitivity, speed_factor=args.speed_factor)
     listenter.start()
 app.run('0.0.0.0', args.port)
 sound_recorder.end()
