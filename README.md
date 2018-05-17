@@ -22,7 +22,9 @@ pip install -r requirements.txt
 sudo python server.py --port *your_port*
 ```
 For more optional arguments `python server.py --help`
+
 The server will be run at `localhost:*your_port*`. Ex: `sudo python server.py --port 8000` then the server will be running at `localhost:8000`.
+
 To run it automatically when the OS start add the script to /etc/init.d as described [here](https://askubuntu.com/questions/290099/how-to-run-a-script-during-boot-as-root)
 
 ### Manage macros
